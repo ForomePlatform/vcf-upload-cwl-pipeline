@@ -7,6 +7,7 @@ inputs:
   case_uri: string
   case_name: string
   case_assembly: int
+  port: int
   ocProject: string
   ocPod: string
   ocToken: string
@@ -40,6 +41,8 @@ steps:
       file_vcf: step2_extract_case/file_vcf
       case_name: case_name
       case_assembly: case_assembly
+      directory: step2_extract_case/dir
+      port: port
     out: [out]
 
   step4_java_annotation:

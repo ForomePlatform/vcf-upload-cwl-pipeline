@@ -17,30 +17,32 @@ Navigate to the folder with the cwl pipeline. There are two options to run the c
 ```
 cwl-runner forome_vcf_upload_uri.cwl inp-job.yml
 ```
-Specify case_uri and comment lines 4-6 in inp-job.yml input file.
+Specify case_uri and comment lines 5-7 in inp-job.yml input file.
 Example:
 ```
-case_uri: https://forome-dataset-public.s3.us-south.cloud-object-storage.appdomain.cloud/pgp3140_wgs_rtg1997.tar.gz
-case_assembly: 38
 case_name: pgp3140_wgs_rtg1997
+
+case_uri: https://forome-dataset-public.s3.us-south.cloud-object-storage.appdomain.cloud/pgp3140_wgs_rtg1997.tar.gz
+
 #archive:
 #  class: File
-#  path: pgp3140_wgs_rtg1997.tar.gz
+#  path: pgp3140_wgs_hlpanel.tar.gz
 ```
 
 2. Run cwl pipeline for the dataset archive located on the server. In this case place archive to the same folder with cwl pipeline.
 ```
 cwl-runner forome_vcf_upload_archive.cwl inp-job.yml
 ```
-Specify archive and comment 1 line in inp-job.yml input file.
+Specify archive and comment line 3 in inp-job.yml input file.
 Example:
 ```
-#case_uri: https://forome-dataset-public.s3.us-south.cloud-object-storage.appdomain.cloud/pgp3140_wgs_rtg1997.tar.gz
-case_assembly: 38
 case_name: pgp3140_wgs_rtg1997
+
+#case_uri: https://forome-dataset-public.s3.us-south.cloud-object-storage.appdomain.cloud/pgp3140_wgs_rtg1997.tar.gz
+
 archive:
   class: File
-  path: pgp3140_wgs_rtg1997.tar.gz
+  path: pgp3140_wgs_hlpanel.tar.gz
 ```
 
 Note: If dataset contains filename with illegal characters then run cwl-runner with argument ```--relax-path-checks```
@@ -55,6 +57,7 @@ cwl-runner --relax-path-checks <cwl workflow> <input file>
 | -------------- | --------------------------------------------------------------------------------------------------------------------------| :------:  |
 | case_uri       | URL to the dataset archive                                                                                                | Yes*      |
 | case_assembly  | Look through the inventory file .cfg, specify assembly 37 or 38                                                           | Yes       |
+| port           | For assembly 37 specify port 3337, for assembly 38 specify port 5306                                                      | Yes       |
 | case_name      | Name of the case                                                                                                          | Yes       |
 | archive        | Name of the archive with dataset. Archive should be placed to the the same folder with cwl pipeline                       | Yes*      |
 | ocProject      | OpenShift project (namespace) name                                                                                        | Yes       |
