@@ -71,5 +71,6 @@ cwl-runner --relax-path-checks <cwl workflow> <input file>
 | output_format  | Is used to build and store credentials for IBM bucket (should be json)                                                    | Yes       |
 | login          | Login name on the server where cwl pipeline runs                                                                          | Yes       |
 | password       | Password for the login                                                                                                    | Yes       |
+| user_id        | Specify user ID ( To check user ID run command: ``` id -u <username> ``` )                                                | Yes       |
 
 *should be specified one of the parameter according to the run option.

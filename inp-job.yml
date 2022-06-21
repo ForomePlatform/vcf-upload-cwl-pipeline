@@ -6,8 +6,8 @@ case_uri: https://forome-dataset-public.s3.us-south.cloud-object-storage.appdoma
 #  class: File
 #  path: pgp3140_wgs_hlpanel.tar.gz
 
-case_assembly: 37
-port: 3337
+case_assembly: 38
+port: 5306
 
 ocProject:
 ocToken:
@@ -21,4 +21,5 @@ region_name: us-south
 output_format: json
 
 login:
-password: 
+password:
+user_id:

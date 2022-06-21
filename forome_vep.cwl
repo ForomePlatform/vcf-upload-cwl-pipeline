@@ -8,7 +8,7 @@ baseCommand: ["docker"]
 arguments:
 - run
 - --user
-- "1001:1001"
+- "$(inputs.user_id):$(inputs.user_id)"
 - -e
 - 'HOME=/opt/vep'
 - --rm
@@ -48,6 +48,8 @@ arguments:
 - --everything
 
 inputs:
+  user_id:
+    type: int
   file_vcf:
     type: File
   case_name:

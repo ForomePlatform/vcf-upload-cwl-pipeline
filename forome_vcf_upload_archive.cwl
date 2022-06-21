@@ -19,6 +19,7 @@ inputs:
   output_format: string
   login: string
   password: string
+  user_id: int
 
 steps:
 
@@ -32,6 +33,7 @@ steps:
   step2_vep_annotation:
     run: forome_vep.cwl
     in:
+      user_id: user_id
       file_vcf: step1_extract_case/file_vcf
       case_name: case_name
       case_assembly: case_assembly
