@@ -7,6 +7,7 @@ inputs:
   archive: File
   case_name: string
   case_assembly: int
+  port: int
   ocProject: string
   ocPod: string
   ocToken: string
@@ -18,6 +19,7 @@ inputs:
   output_format: string
   login: string
   password: string
+  user_id: int
 
 steps:
 
@@ -31,9 +33,12 @@ steps:
   step2_vep_annotation:
     run: forome_vep.cwl
     in:
+      user_id: user_id
       file_vcf: step1_extract_case/file_vcf
       case_name: case_name
       case_assembly: case_assembly
+      directory: step1_extract_case/dir
+      port: port
     out: [out]
 
   step3_java_annotation:

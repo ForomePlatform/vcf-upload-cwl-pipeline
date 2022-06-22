@@ -2,8 +2,14 @@
 
 class: CommandLineTool
 cwlVersion: v1.0
-baseCommand: ["bash", "/data/annotation/annotation_fg.sh"]
+baseCommand: ["java"]
 arguments:
+- -cp
+- /data/annotation/annotation_foreground.jar
+- org.forome.annotation.annotator.main.AnnotatorMainFork
+- -config
+- /data/annotation/config.json
+- -inventory
 - $(inputs.directory.path)/$(inputs.case_name).cfg
 
 inputs:
